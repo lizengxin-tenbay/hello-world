@@ -15,7 +15,7 @@ var gitRevision string	//git的版本信息
 
 // version 执行version命令
 func version() {
-	gitRevision = "version:1.0"
+	gitRevision = "version:2.0"
 	log.Info().Str("gitRevision",gitRevision).Send()
 }
 
