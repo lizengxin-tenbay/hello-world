@@ -4,6 +4,7 @@ import (
 	_ "github.com/go-sql-driver/mysql" //nolint
 	"github.com/go-xorm/xorm"
 	"github.com/rs/zerolog/log"
+	"github.com/spf13/viper"
 	"time"
 )
 
