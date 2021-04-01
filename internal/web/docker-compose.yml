@@ -6,7 +6,7 @@ services:
     restart: always
     networks:
       worknet:
-        - ipv4_address: ${MYSQL_IP}
+        ipv4_address: ${MYSQL_IP}
     logging: { driver: "json-file", options: { max-size: "10m", max-file: "10" } }
     environment:
       MYSQL_USER: work
@@ -19,7 +19,7 @@ services:
     restart: always
     networks:
       worknet:
-        - ipv4_address: ${WEB-IP}
+        ipv4_address: ${WEB-IP}
     logging: { driver: "json-file", options: { max-size: "10m", max-file: "10" } }
     environment:
       ZERO_LOG_LEVEL: trace
