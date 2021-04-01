@@ -1,0 +1,33 @@
+version: "3.5"
+services:
+  mysql-work:
+    image: mysql:8
+    container_name: mysql-work
+    restart: always
+    networks:
+      worknet:
+        - ipv4_address: ${MYSQL_IP}
+    logging: { driver: "json-file", options: { max-size: "10m", max-file: "10" } }
+    environment:
+      MYSQL_USER: work
+      MYSQL_PASSWORD: ${MYSQL_PASSWD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWD}
+
+  web-work:
+    image: xxx:1
+    container_name: web-work
+    restart: always
+    networks:
+      worknet:
+        - ipv4_address: ${WEB-IP}
+    logging: { driver: "json-file", options: { max-size: "10m", max-file: "10" } }
+    environment:
+      ZERO_LOG_LEVEL: trace
+      MICRO_MODULE: work
+      MICRO_SERVER_ADDRESS: ":8888"
+      CHECKASSOCENABLE: 1
+
+networks:
+  worknet:
+    external: true
+    name: worknet
