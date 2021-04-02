@@ -13,23 +13,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWD}
 
-  web-work:
-    image: xxx:1
-    container_name: web-work
-    restart: always
-    ports:
-     - "8888:8888"
-    networks:
-      worknet:
-        ipv4_address: ${WEB_IP}
-    logging: { driver: "json-file", options: { max-size: "10m", max-file: "10" } }
-    environment:
-      ZERO_LOG_LEVEL: trace
-      MICRO_MODULE: work
-      MICRO_SERVER_ADDRESS: ":8888"
-      CHECKASSOCENABLE: 1
-    command: homepeer web 
-
 networks:
   worknet:
     external: true

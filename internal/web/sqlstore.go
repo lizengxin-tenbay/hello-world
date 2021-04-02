@@ -24,7 +24,7 @@ loadMysqlStoreOpt 赋予具体数据库信息，mysqlStoreOpt为存储信息的�
 返回值：数据库信息
  */
 func loadMysqlStoreOpt() mysqlStoreOpt {
-	url := "root:123456@tcp(127.0.0.1:33306)/test?charset=utf8"
+	url := "root:123456@tcp(192.168.108.110:33306)/test?charset=utf8"
 	viper.SetDefault(`MYSQL_URL`, url)
 	opt := mysqlStoreOpt{
 		MysqlURL: viper.GetString(`MYSQL_URL`),
